@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer with Closure and this</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100dvh;
+        gap: 5px;
+      }
+
+      h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-transform: uppercase;
+      }
+
+      .time-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10rem;
+        height: 3rem;
+        background-color: #000000;
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 15px;
+        font-size: 1.7rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Timer</h1>
+    <div id="timer" class="time-counter"></div>
+
+    <script>
+      // Reusable Component with Closure and this
+
+      function createTimer(duration, elementId) {
+        let remainingTime = duration;
+        let element = document.getElementById(elementId);
+
+        function updateTimer() {
+          if (remainingTime > 0) {
+            this.textContent = remainingTime;
+            remainingTime--;
+            setTimeout(updateTimer.bind(this), 1000);
+          } else {
+            this.textContent = "Time's up!";
+            console.log("Time finished");
+          }
+        }
+
+        updateTimer.call(element);
+      }
+
+      createTimer(20, "timer");
+    </script>
+  </body>
+</html>
