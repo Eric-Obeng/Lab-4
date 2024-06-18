@@ -8,5 +8,20 @@
   </head>
   <body>
     <button id="click-btn" class="btn">Click Me</button>
+
+    <!-- Event Handlers and this: -->
+    <script>
+      document
+        .getElementById("click-btn")
+        .addEventListener("click", function handleClick() {
+          console.log(this.id);
+          console.log(this.textContent);
+        });
+
+      document.getElementById("click-btn").addEventListener("click", () => {
+        console.log(this.id);
+        console.log(this.textContent);
+      });
+    </script>
   </body>
 </html>
