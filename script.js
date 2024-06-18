@@ -29,3 +29,22 @@ Person.greet.apply(newPerson);
 // using bind
 const bindObject = Person.greet.bind(newPerson);
 bindObject();
+
+function createCounter() {
+  let count = 0;
+
+  return {
+    increment: function () {
+      count++;
+      console.log(this.count);
+      // The requirement to use this.count isn't directly possible due to JavaScript's scope and closure rules. Private variables in closures are not accessible via this.
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+
+let counter = createCounter();
+counter.increment();
+console.log(counter.getCount());
