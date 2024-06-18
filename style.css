@@ -1,0 +1,29 @@
+* {
+  margin: unset;
+  padding: unset;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.btn {
+  padding: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  background-color: #1919db;
+  transition: background-color 0.5s ease;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #060673;
+}
